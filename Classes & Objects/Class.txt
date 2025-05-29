@@ -1,0 +1,232 @@
+🧠 JavaScript Interview Questions
+🔰 Basic
+What is the difference between var, let, and const?
+
+What are objects in JavaScript?
+
+What is a constructor function?
+
+What is the this keyword?
+
+What is the difference between == and ===?
+
+What are template literals?
+
+How do arrow functions differ from normal functions?
+
+⚙️ Intermediate
+What is a class and how does it differ from a constructor function?
+
+What is inheritance in JavaScript? How is it implemented?
+
+Explain call(), apply(), and bind() with examples.
+
+What is hoisting?
+
+What is the prototype chain?
+
+What is the difference between shallow and deep copy?
+
+What are closures?
+
+🧩 Advanced
+How does JavaScript handle asynchronous operations?
+
+What is the event loop and how does it work?
+
+Explain currying and function composition.
+
+How does garbage collection work in JavaScript?
+
+Explain the use of Symbol, WeakMap, and WeakSet.
+
+Difference between Object.create() and class-based inheritance.
+
+How do bind, apply, and call differ in performance and use-cases?
+
+🧾 Summary Table
+Concept	Description	Example
+Object	Collection of properties	{ name: 'John' }
+Class	Blueprint for creating objects	class Car {}
+Constructor	Method to initialize class properties	constructor()
+this	Refers to current object/context	this.name
+call()	Invoke with custom this and args	func.call(obj, arg1)
+apply()	Invoke with custom this, args as array	func.apply(obj, [arg1])
+bind()	Bind this, returns new function	const fn = func.bind(obj)
+
+
+
+
+# 🧠 JavaScript Interview Questions & Answers
+
+
+## 🔰 Basic
+
+### 1. What is the difference between `var`, `let`, and `const`?
+
+| Keyword | Scope       | Hoisting | Re-declaration | Re-assignment |
+|---------|-------------|----------|----------------|---------------|
+| `var`   | Function    | Yes      | Yes            | Yes           |
+| `let`   | Block       | No       | No             | Yes           |
+| `const` | Block       | No       | No             | No            |
+
+### 2. What are objects in JavaScript?
+
+Objects are collections of key-value pairs that can contain properties and methods.
+
+
+const person = {
+  name: "Alice",
+  greet: function () {
+    console.log("Hello!");
+  }
+};
+
+
+
+-------------------------------------
+3. What is a constructor function?
+A constructor is a special function used to create and initialize objects.
+
+
+
+function Person(name) {
+  this.name = name;
+}
+
+
+const p = new Person("Bob");
+-----------------------------------
+
+4. What is the this keyword?
+this refers to the object that is executing the function.
+
+
+------------------------------------
+5. What is the difference between == and ===?
+== compares values after type coercion.
+
+=== compares both value and type.
+
+'5' == 5   // true
+'5' === 5  // false
+
+------------------------------------
+6. What are template literals?
+Template literals allow embedding variables in strings using backticks (`).
+
+const name = "John";
+console.log(`Hello, ${name}!`);\
+
+------------------------------------
+7. How do arrow functions differ from normal functions?
+Arrow functions do not have their own this and are not suitable as constructors.
+
+const greet = () => console.log("Hello");
+
+
+#####################################################################
+
+⚙️ Intermediate
+1. What is a class and how does it differ from a constructor function?
+Classes are syntactic sugar over constructor functions for defining blueprints for objects.
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+---------------------------------------------
+2. What is inheritance in JavaScript? How is it implemented?
+Inheritance lets one class access the properties and methods of another using extends.
+
+class Animal {
+  speak() { console.log("Animal speaks"); }
+}
+class Dog extends Animal {}
+
+---------------------------------------------
+3. Explain call(), apply(), and bind() with examples.
+
+function greet(age) {
+  console.log(`${this.name} is ${age}`);
+}
+const person = { name: "Tom" };
+
+greet.call(person, 30);
+greet.apply(person, [40]);
+const boundFn = greet.bind(person);
+boundFn(50);
+
+-------------------------------------------
+4. What is hoisting?
+Variable and function declarations are moved to the top of their scope at runtime.
+
+-------------------------------------------
+5. What is the prototype chain?
+A chain of linked objects used for inheritance in JavaScript.
+
+-------------------------------------------
+obj --> Object.prototype --> null
+6. What is the difference between shallow and deep copy?
+Shallow Copy: Copies only references to nested objects.
+
+Deep Copy: Recursively copies all nested objects.
+
+
+const shallow = Object.assign({}, obj);
+const deep = JSON.parse(JSON.stringify(obj));
+--------------------------------------------
+7. What are closures?
+A closure is a function that retains access to its lexical scope even when executed outside it.
+
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    return count;
+  };
+}
+const counter = outer();
+counter(); // 1
+
+##########################################################
+🧩 Advanced
+1. How does JavaScript handle asynchronous operations?
+Using event loop, callbacks, promises, and async/await.
+-----------------------------------------------
+2. What is the event loop and how does it work?
+It manages the execution of asynchronous code by moving tasks from the queue to the call stack when it’s clear.
+
+------------------------------------------------
+3. Explain currying and function composition.
+Currying: Breaking a function into multiple functions with single parameters.
+
+Composition: Combining multiple functions into one.
+
+const compose = (f, g) => x => f(g(x));
+
+-------------------------------------------------
+4. How does garbage collection work in JavaScript?
+Through reachability. If no references point to an object, it's removed from memory.
+
+-------------------------------------------------
+5. Explain the use of Symbol, WeakMap, and WeakSet.
+Symbol: Unique and immutable identifiers.
+
+WeakMap/WeakSet: Store objects without preventing garbage collection.
+---------------------------------------------------
+
+6. Difference between Object.create() and class-based inheritance.
+Object.create(proto) sets prototype directly.
+
+Classes provide structured syntax using extends.
+
+---------------------------------------------------
+
+7. How do bind(), apply(), and call() differ in performance and use-cases?
+Method	Invocation	Arguments Format	Use-case
+call()	Immediate	comma-separated	One-time function call
+apply()	Immediate	array format	Useful for spreading arrays
+bind()	Deferred	any	Create reusable bound function
