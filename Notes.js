@@ -148,6 +148,8 @@ class Dog extends Animal {
 
 const dog = new Dog("Buddy");
 dog.speak(); // Buddy barks
+const animal = new Animal('Horse');
+animal.speak();
 
 // Modules (ES6) — only in module environments
 // export const PI = 3.14;
@@ -169,7 +171,8 @@ dog.speak(); // Buddy barks
  *    const cannot be reassigned.
  *
  * Q2: What is closure?
- * A: A closure is a function that remembers its outer scope variables.
+ * A: A closure is a function that remembers its outer scope variables that retains access to its 
+ *    lexical scope even when executed outside it.
  *
  * Q3: What is the difference between == and === ?
  * A: == allows type coercion; === checks type and value.
